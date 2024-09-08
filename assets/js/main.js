@@ -249,24 +249,24 @@
   });
 
 })()
-// const form=document.querySelector('#check'); 
-// const nameInput =document.querySelector('#name');
-// FormData.addEventListener('submit',(event)=>{
-//       event.preventDefault();
-// });
+const form=document.querySelector('#check'); 
+const nameInput =document.querySelector('#name');
+FormData.addEventListener('submit',(event)=>{
+      event.preventDefault();
+});
 
 
-//   function validateform(){
+  function validateform(){
 
-//     if(nameInput.value.trim()==''){
-//       setError(nameInput,'Name not be empty')
-//     }
-//   }
+    if(nameInput.value.trim()==''){
+      setError(nameInput,'Name not be empty')
+    }
+  }
 
-//   function setError(element,errorMessage ){
-//     const parent =element.parentElement;
-//     parent.ClassList.add('error');
-//   }
+  function setError(element,errorMessage ){
+    const parent =element.parentElement;
+    parent.ClassList.add('error');
+  }
 $(document).ready(function(){
   $("#check").validate({
     rules:{
