@@ -2,664 +2,1194 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammed Rafi KK | Flutter Developer</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <title>Muhammed Rafi KK | Software Engineer | Flutter Developer & Designer | Personal Portfolio</title>
-  <meta
-    content="Welcome to the personal portfolio of Muhammed Rafi, a skilled Flutter developer and designer. Explore my projects, skills, and contact information to learn more about my work."
-    name="description">
-  <meta content="" name="keywords">
+    <style>
+        /* CSS Variables */
+        :root {
+            --bg-color: #0A0A0A;
+            --surface-color: #121212;
+            --surface-border: #2A2A2A;
+            --text-primary: #F0F0F0;
+            --text-secondary: #A0A0A0;
+            --accent-color: #1D9E75;
+            --accent-glow: rgba(29, 158, 117, 0.2);
+            --font-family: 'Inter', sans-serif;
+            --transition: all 0.3s ease;
+        }
 
-  <!-- Favicons -->
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <link href="assets/img/por.webp" rel="icon" type="profile/jpg">
-  <link href="assets/img/por.webp" rel="apple-touch-icon">
+        html {
+            scroll-behavior: smooth;
+        }
 
-  <!-- Google Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
-    rel="stylesheet">
+        body {
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: var(--transition);
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+        ul {
+            list-style: none;
+        }
 
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Muhammed Rafi",
-      "jobTitle": "Flutter Developer",
-      "url": "https://www.muhammedrafi.com",
-      "sameAs": [
-        "https://www.linkedin.com/in/muhammedrafi",
-        "https://github.com/muhammedrafi"
-      ],
-      "description": "Muhammed Rafi is a skilled Flutter developer and designer with a focus on creating high-performance mobile applications and innovative designs."
-    }
-    </script>
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Typography */
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            width: 40px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        .text-accent {
+            color: var(--accent-color);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: #fff;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--accent-color);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--surface-border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
+
+        nav.scrolled {
+            padding: 1rem 0;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 8rem 0;
+        }
+
+        /* Hero Section */
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(10, 10, 10, 0) 70%);
+            z-index: -1;
+            filter: blur(80px);
+            opacity: 0.8;
+            transform: translate(20%, -20%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .greeting {
+            font-size: 1.2rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: block;
+            letter-spacing: 1px;
+        }
+
+        .hero-title {
+            font-size: clamp(3rem, 8vw, 5rem);
+            letter-spacing: -2px;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .typed-cursor {
+            color: var(--accent-color);
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* About Section */
+        #about .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            pointer-events: none;
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .philosophy {
+            margin-top: 2.5rem;
+            padding-left: 1.5rem;
+            border-left: 3px solid var(--accent-color);
+            font-size: 1.2rem;
+            font-style: italic;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        #skills .skills-container {
+            display: flex;
+            flex-direction: column;
+            gap: 3.5rem;
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-size: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            border-color: var(--accent-color);
+            color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            background: rgba(29, 158, 117, 0.05);
+        }
+
+        .skill-tag i {
+            font-size: 1.2rem;
+        }
+
+        /* Work Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 2px;
+            background: var(--surface-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 60px;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 15px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-color);
+            box-shadow: 0 0 0 4px var(--bg-color), 0 0 0 6px var(--surface-border);
+            z-index: 1;
+        }
+
+        .timeline-content {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            padding: 2.5rem;
+            border-radius: 16px;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .timeline-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-role {
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-company {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        .timeline-date {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+
+        .timeline-content p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--surface-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .project-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 1px solid var(--surface-border);
+            background-color: #1a1a1a;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-img {
+            transform: scale(1.05);
+        }
+
+        .project-img-wrapper {
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .project-info {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.4rem;
+            color: #fff;
+        }
+
+        .project-links a {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .project-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .project-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .project-tags span {
+            font-size: 0.85rem;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        /* Education */
+        .education-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--surface-border);
+            padding-bottom: 2rem;
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .edu-info {
+            flex: 1;
+        }
+
+        .edu-degree {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 0.3rem;
+        }
+
+        .edu-school {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .edu-year {
+            font-size: 1rem;
+            color: var(--accent-color);
+            font-weight: 500;
+            margin-left: 2rem;
+            white-space: nowrap;
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+            padding-bottom: 6rem;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--surface-color);
+            padding: 4rem;
+            border-radius: 24px;
+            border: 1px solid var(--surface-border);
+        }
+
+        .contact-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            padding: 0.8rem 1.5rem;
+            background: var(--bg-color);
+            border: 1px solid var(--surface-border);
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            color: #fff;
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            background: rgba(29, 158, 117, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: #fff;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            #about .about-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .timeline-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .education-item {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .edu-year {
+                margin-left: 0;
+            }
+
+            .contact-content {
+                padding: 2rem;
+            }
+        }
+
+        /* Reveal Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
 </head>
 
 <body>
 
-  <!-- ======= Mobile nav toggle button ======= -->
-  <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
-
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="d-flex flex-column">
-
-      <div class="profile">
-        <img src="assets/img/profileEdit.jpg" alt="" class="img-fluid rounded-circle">
-        <h1 class="text-light"><a href="index.html">Muhammed Rafi</a></h1>
-        <div class="social-links mt-3 text-center">
-          <a href="https://twitter.com/muhd_rafikk" class="twitter"><i class="bx bxl-twitter"></i></a>
-          <a href="https://www.facebook.com/rafikkvavoor" class="facebook"><i class="bx bxl-facebook"></i></a>
-          <a href="https://www.instagram.com/rafi_k.k/" class="instagram"><i class="bx bxl-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/rafikk" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-          <a href="https://github.com/godsday" class="google-plus"><i class="bi bi-github"></i></a>
-
-        </div>
-      </div>
-
-      <nav id="navbar" class="nav-menu navbar">
-        <ul>
-          <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
-          <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
-          <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i>
-              <span>Portfolio</span></a></li>
-          <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
-          <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
-        </ul>
-      </nav><!-- .nav-menu -->
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
-    <div class="hero-container" data-aos="fade-in">
-      <h1>Muhammed Rafi</h1>
-      <p>I'm <span class="typed" data-typed-items="Designer, Developer, Freelancer, Photographer"></span></p>
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>About</h2>
-          <p>Hello! I'm Muhammed Rafi, a Developer, Designer, and Problem-Solver. My passion lies in turning ideas into
-            polished digital experiences, whether it’s building intuitive mobile apps or crafting impactful websites.
-            With a blend of creativity and technical expertise, I help businesses create products that not only look
-            good but work seamlessly.
-
-            I’m all about delivering results that make a difference, whether you’re launching a startup or scaling an
-            established brand. If you’re looking for someone who gets the job done while keeping user experience front
-            and center, let’s connect!</p>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right">
-            <img src="assets/img/cover.jpg" class="img-fluid" alt="rafi_photo">
-          </div>
-          <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-            <h3>Flutter Developer</h3>
-            <p class="fst-italic">
-              At the heart of my development toolkit is Flutter, the framework that allows me to craft high-performance,
-              cross-platform apps with a seamless user experience. With Flutter, I bring ideas to life across both iOS
-              and Android platforms, ensuring consistent functionality and beautiful design no matter the device.</p>
-            <div class="row">
-              <div class="col-lg-6 list">
-                <ul>
-                  <!-- <li><i class="bi bi-chevron-right"></i> <strong>Birthday:</strong> <span>22 June 1997</span></li> -->
-                  <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span><a
-                        href="https://godsday.github.io/Portfolio/">www.muhd_rafi.in</a></span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+91 808 661 7703</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>City:</strong> <span>Kerala, INDIA</span></li>
-                </ul>
-              </div>
-              <div class="col-lg-6 list">
-                <ul>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>Professional</span></li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>rafikkvavoor@gmail.com</span>
-                  </li>
-                  <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-                </ul>
-              </div>
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="container nav-content">
+            <a href="#" class="logo">MR<span class="text-accent">.</span></a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Work</a>
+                <a href="#contact">Contact</a>
             </div>
-            <p>
+            <button class="menu-btn" aria-label="Toggle menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="container hero-content">
+            <span class="greeting reveal">Hi, my name is</span>
+            <h1 class="hero-title reveal">Muhammed Rafi KK.</h1>
+            <div class="hero-subtitle reveal">
+                A&nbsp;<span id="typed-text" class="text-accent"></span><span class="typed-cursor">|</span>
+            </div>
+            <p class="hero-description reveal">
+                I'm a mobile-first software engineer specializing in building exceptional digital experiences. Currently
+                focused on building robust cross-platform applications using Flutter.
             </p>
-          </div>
+            <div class="hero-cta reveal">
+                <a href="#projects" class="btn btn-primary">
+                    View my work <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <i class="fa-solid fa-file-arrow-down"></i> Download CV
+                </a>
+            </div>
         </div>
+    </section>
 
-      </div>
-    </section><!-- End About Section -->
-
-    <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts">
-      <div class="container">
-
-
-        <!-- ======= Skills Section ======= -->
-        <section id="skills" class="skills section-bg">
-          <div class="container">
-
-            <div class="section-title">
-              <h2>Skills</h2>
-              <p>I excel in crafting user-friendly applications using Dart, with a strong focus on efficient coding and
-                asynchronous operations. I integrate Firebase for real-time databases, authentication, and cloud
-                functions, ensuring robust app functionality. My expertise extends to connecting apps with external
-                services through RESTful APIs. Additionally, I use Git for version control and embrace Agile
-                methodologies to drive iterative development and effective collaboration.</p>
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title reveal">About Me</h2>
+            <div class="about-grid">
+                <div class="about-image reveal">
+                    <img src="assets/img/portfolio/profile.png" alt="Muhammed Rafi KK"
+                        onerror="this.src='https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                </div>
+                <div class="about-text reveal">
+                    <p>
+                        Hello! I'm Rafi, a Flutter Developer with a passion for creating pixel-perfect, highly
+                        performant mobile applications. My journey in software development started with a deep curiosity
+                        for how digital products impact human lives.
+                    </p>
+                    <p>
+                        With over 3 years of professional experience across 2 companies and 4 major projects, I've honed
+                        my skills in Dart, state management (BLoC, Provider, GetX), and clean architecture. I bridge the
+                        gap between design and engineering, ensuring that beautiful UI is backed by scalable code.
+                    </p>
+                    <p>
+                        Currently, I'm expanding my horizons by pursuing a Master of Computer Applications (MCA) in Data
+                        Science & AI at Manipal University.
+                    </p>
+                    <div class="philosophy">
+                        "Great engineering is invisible. Users only notice it when it breaks."
+                    </div>
+                </div>
             </div>
-
-            <div class="row skills-content">
-
-              <div class="col-lg-6" data-aos="fade-up">
-
-                <div class="progress">
-                  <span class="skill">HTML <i class="val">100%</i></span>
-                  <div class="progress-bar-wrap">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="progress">
-                  <span class="skill">CSS <i class="val">100%</i></span>
-                  <div class="progress-bar-wrap">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="progress">
-                  <span class="skill">BOOTSTRAP <i class="val">100%</i></span>
-                  <div class="progress-bar-wrap">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-              </div>
-
-              <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="progress">
-                  <span class="skill">java <i class="val">70%</i></span>
-                  <div class="progress-bar-wrap">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="progress">
-                  <span class="skill">FLUTTER <i class="val">100%</i></span>
-                  <div class="progress-bar-wrap">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-                <div class="progress">
-                  <span class="skill">Javascript <i class="val">50%</i></span>
-                  <div class="progress-bar-wrap">
-                    <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0"
-                      aria-valuemax="100"></div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-        </section><!-- End Skills Section -->
-
-        <!-- ======= Resume Section ======= -->
-        <section id="resume" class="resume">
-          <div class="container">
-
-            <div class="section-title">
-              <h2>Resume</h2>
-
-
-
-            </div>
-            <h3 class="resume-title">Professional Experience</h3>
-
-            <div class="row">
-              <div class="row skills-content" data-aos="fade-up">
-
-
-                <div class="col-lg-6 resume-item" data-aos="fade-up">
-
-                  <h4>Software Engineer </h4>
-                  <h5> 2023 - Present </h5>
-                  <p><em>Neurealm Pvt.Ltd, Chennai.</em></p>
-                  <ul>
-                    <li>Integrated <b>Flutter module</b>  into native iOS (Swift) and Android (Kotlin) apps for the <a href="https://www.flyfrontier.com/app?mobile=true"> <b>
-                        Frontier Airlines </b></a> mobile application, enabling seamless cross-platform functionality.</li>
-                    <li>Implemented <b>method channels</b> to enable efficient communication between Flutter and native
-                      platforms, ensuring smooth integration.</li>
-                    <li>Developed a dynamic home page using <b>CMS(Sanity)</b>, allowing real-time content updates without
-                      requiring code changes, enhancing flexibility and user engagement.</li>
-                    <li> Optimized UI/UX components for flight status and profile sections, ensuring a smooth and
-                      responsive experience.</li>
-                  </ul>
-                  <ul>
-                    <li>Played a pivotal role in troubleshooting, refining, and fixing bugs in the <a href="https://www.adityabirlacapital.com/abcd"><b>ABCD Application(Aditya
-                        Birla Capital Digital)</b></a>, with a
-                      special focus on enhancing performance and user experience, particularly in the <b>UPI payments, BBPS
-                      (Bharat Bill
-                      Payment System) integration</b>.
-
-
-                    </li>
-                    <li>Spearheaded the development and maintenance of critical features, including the payment chat
-                      page,
-                      transaction view, and favorites modules, thereby enriching app functionality and user engagement.
-                    </li>
-                    <li>Fostered a collaborative environment by closely partnering with the Quality Assurance (QA) team
-                      to
-                      swiftly detect and resolve issues, ensuring the delivery of top-notch products.
-                    </li>
-                    <li>Contributing valuable insights and innovative ideas to enhance overall app architecture and
-                      functionality.
-                    </li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-6 resume-item" data-aos="fade-up">
-
-                  <h4>Senior Front-End Associate </h4>
-                  <h5> 2022 - 2023 </h5>
-                  <p><em>Ikure Techsoft Pvt.Ltd, Bangalore.</em></p>
-                  <ul>
-                    <li>Developed and implemented the <b>iKure WHIMS (Wireless Health Incident Management System)</b>
-                      mobile
-                      application to enhance patient management and clinic operations.
-
-                    </li>
-                    <li>Collaborated with a multidisciplinary team of developers, designers, and healthcare
-                      professionals to gather requirements and create an intuitive user interface.</li>
-                    <li>Conducted thorough testing and debugging to ensure a robust and error-free user experience.
-                    </li>
-                    <li>Actively participated in team meetings, brainstorming sessions, and code reviews to foster
-                      collaboration, knowledge sharing, and code quality.</li>
-                  </ul>
-                </div>
-
-                <div class="col-lg-6 resume-item" data-aos="fade-up">
-
-                  <h4>Flutter Developer Intern </h4>
-                  <h5> 2021 - 2022 </h5>
-                  <p><em>Brototype Academy, Calicut.</em></p>
-
-                  <ul>
-                    <li>Completed an intensive Flutter training program focused on cross-platform mobile app
-                      development.
-                    <li> Developed my first Flutter application from scratch, handling everything from design and
-                      development to deployment on the Google Play Store.
-                    </li>
-                    <li> Gained hands-on experience building mobile apps using Flutter and Dart, focusing on UI/UX
-                      design, state management, and performance optimization.
-                    </li>
-                    <li> Worked on real-world projects and case studies to develop skills in integrating Firebase for
-                      backend services like authentication and real-time databases.
-                    </li>
-                    <li> Participated in group activities, peer reviews, and code labs, enhancing collaborative
-                      development and problem-solving techniques.</li>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-
-              <h3 class="resume-title">Education</h3>
-              <div class="row skills-content" data-aos="fade-up">
-
-                <div class="col-lg-6 resume-item" data-aos="fade-up">
-
-                  <h4>Junior Network Engineer -Intern</h4>
-                  <h5>2019 - 2020 </h5>
-                  <p><em>Soften Technologies, Ernakulam. </em></p>
-                  <ul>
-                    <li>Maintaining and administering computer networks and related
-                      computing environments.</li>
-                    <li>Monitor performance and ensure system availability and reliability. </li>
-                    <li>Configuring and installing systems software and applications software.</li>
-                    <li>Identifying hardware and software solutions and troubleshooting
-                      technical issues.</li>
-                  </ul>
-                </div>
-                <div class="col-lg-6 resume-item" data-aos="fade-up">
-                  <h4>Bachelor of Computer Application</h4>
-                  <h5>2016 - 2019</h5>
-                  <p><em>Safi Institute of Advanced Studies, Malappuram.</em></p>
-                  <p>Pursued my passion for software structures through six advanced electives in
-                    software systems,architecture, and modeling.
-                  </p>
-                  <p> Dual concentration in programming languages and web development.</p>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-
-      </div>
-    </section><!-- End Resume Section -->
-
-    <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio section-bg">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Here’s a glimpse of the work I’ve done, from mobile apps to responsive websites. Each project reflects my
-            commitment to quality, user-friendly design, and functionality.</p>
         </div>
+    </section>
 
-        <div class="row" data-aos="fade-up">
-          <div class="col-lg-12 d-flex justify-content-center">
-            <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">Works</li>
-
-              <li data-filter=".filter-app">App</li>
-              <li data-filter=".filter-card">Web</li>
-              <!-- <li data-filter=".filter-web">Photos</li> -->
-            </ul>
-          </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="100">
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/mini.png" class="img-fluid" alt="MINI-COOPER">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/mini.png" data-gallery="portfolioGallery" class="portfolio-lightbox"
-                  title="BMW -Mini officials "><i class="bx bx-plus"></i></a>
-                <a href="https://godsday.github.io/MINI-clone/" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/monoApp.jpg" class="img-fluid" alt="MONO APP">
-              <div class="portfolio-links">
-                <a href="assets/img/figma.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox"
-                  title="Mono Wallet Controll"><i class="bx bx-plus"></i></a>
-                <a href="https://play.google.com/store/apps/details?id=in.ror.mono" title="More Details"><i
-                    class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-                <a href="" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div> -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/swiggy-1.webp" class="img-fluid" alt="swiggy">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/swiggy-1.webp" data-gallery="portfolioGallery" class="portfolio-lightbox"
-                  title="Swiggy_desktop_clone"><i class="bx bx-plus"></i></a>
-                <a href="https://godsday.github.io/Clone_Swiggy/" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-          <!-- 
-              <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/" class="img-fluid" alt="">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-                <a href="" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/" class="img-fluid" alt="">
-                  <div class="portfolio-links">
-                  <a href="assets/img/portfolio/" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                <a href="" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title reveal">Technical Arsenal</h2>
+            <div class="skills-container">
+                <div class="skill-category reveal">
+                    <h3>Core Development</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fa-brands fa-flutter" style="color: #54C5F8;"></i>
+                            Flutter</span>
+                        <span class="skill-tag"><i class="fa-solid fa-code" style="color: #00B4AB;"></i> Dart</span>
+                        <span class="skill-tag"><i class="fa-solid fa-cubes"></i> Clean Architecture</span>
+                        <span class="skill-tag"><i class="fa-solid fa-layer-group"></i> MVVM</span>
+                    </div>
                 </div>
-              </div> -->
-
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/dreamdescc.png" class="img-fluid" alt="Dream-decor">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/dreamdescc.png" data-gallery="portfolioGallery" class="portfolio-lightbox"
-                  title="Dream_Decor_Fabrications"><i class="bx bx-plus"></i></a>
-                <a href="https://godsday.github.io/Dream-decor/" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-                <div class="portfolio-wrap">
-                  <img src="assets/img/portfolio/" class="img-fluid" alt="">
-                  <div class="portfolio-links">
-                    <a href="assets/img/portfolio/" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                    <a href="" title="More Details"><i class="bx bx-link"></i></a>
-                  </div>
+                <div class="skill-category reveal">
+                    <h3>State Management</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fa-solid fa-box-open"></i> BLoC</span>
+                        <span class="skill-tag"><i class="fa-solid fa-hand-holding"></i> Provider</span>
+                        <span class="skill-tag"><i class="fa-solid fa-bolt"></i> GetX</span>
+                        <span class="skill-tag"><i class="fa-solid fa-water"></i> Riverpod</span>
+                    </div>
                 </div>
-              </div> -->
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/folio1_1.webp" class="img-fluid" alt="check">
-              <div class="portfolio-links">
-                <a href="assets/img/portfolio/folio1_1.webp" data-gallery="portfolioGallery" class="portfolio-lightbox"
-                  title="Instagram_desktop_clone"><i class="bx bx-plus"></i></a>
-                <a href="https://godsday.github.io/Clones/" title="More Details"><i class="bx bx-link"></i></a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </section><!-- End Portfolio Section -->
-
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Services</h2>
-          <p> </p>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up">
-            <div class="icon"><i class="bi bi-briefcase"></i></div>
-            <h4 class="title"><a href="">Custom Mobile App Development</a></h4>
-            <p class="description">Got a brilliant app idea? Let’s turn it into reality! I create custom mobile apps for
-              Android and iOS that are not only sleek and user-friendly but also perform like a dream. From
-              brainstorming your concept to seeing your app live on the app stores, I’m with you every step of the way,
-              ensuring your app stands out in the crowd.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bi bi-card-checklist"></i></div>
-            <h4 class="title"><a href="">Web Development </a></h4>
-            <p class="description">Your website is your digital storefront—let’s make it unforgettable! I design and
-              develop responsive websites that look stunning on any device, whether it’s a desktop, tablet, or
-              smartphone. Whether you need a simple portfolio or a full-featured e-commerce site, I’ll craft a website
-              that’s fast, functional, and perfectly aligned with your brand’s voice.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bi bi-bar-chart"></i></div>
-            <h4 class="title"><a href=""></a>UI/UX Design</h4>
-            <p class="description">I focus on creating user-friendly and visually appealing designs for your apps and
-              websites. My designs are intuitive, ensuring that your users have a positive and engaging experience. I
-              deliver wireframes, prototypes, and final designs that align with your brand and goals.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bi bi-binoculars"></i></div>
-            <h4 class="title"><a href="">SEO (Search Engine Optimization)</a></h4>
-            <p class="description">I optimize your website to improve its visibility on search engines, driving more
-              organic traffic. Through keyword research, on-page optimization, and content strategy, I help your website
-              rank higher. This ensures that your target audience can easily find your business online.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bi bi-brightness-high"></i></div>
-            <h4 class="title"><a href="">Digital Marketing</a></h4>
-            <p class="description">I create and implement digital marketing strategies to grow your online presence and
-              reach your target audience. This includes managing social media campaigns, email marketing, and PPC
-              advertising. My data-driven approach ensures that your marketing efforts are effective and aligned with
-              your business goals.</p>
-          </div>
-          <div class="col-lg-4 col-md-6 icon-box" data-aos="fade-up" data-aos-delay="500">
-            <div class="icon"><i class="bi bi-calendar4-week"></i></div>
-            <h4 class="title"><a href="">Consultation & Strategy</a></h4>
-            <p class="description">I offer expert advice on the best strategies for your app or web development
-              projects. Together, we’ll plan and roadmap your project to align with your business goals. I stay
-              up-to-date with the latest trends and best practices to ensure your project’s success.</p>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Services Section -->
-
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-
-      <div class="container">
-
-        <div class="section-title">
-          <h2>Contact</h2>
-          <p></p>
-        </div>
-
-        <div class="row" data-aos="fade-in">
-
-          <div class="col-lg-5 d-flex align-items-stretch">
-            <div class="info">
-              <div class="address">
-                <i class="bi bi-geo-alt"></i>
-                <h4>Location:</h4>
-                <p>Kerala, India PIN 673645</p>
-              </div>
-
-              <div class="email">
-                <i class="bi bi-envelope"></i>
-                <h4>Email:</h4>
-                <p>rafikkvavoor@gmail.com</p>
-              </div>
-
-              <div class="phone">
-                <i class="bi bi-phone"></i>
-                <h4>Call:</h4>
-                <p>+91 8086617703</p>
-              </div>
-
-            </div>
-
-          </div>
-
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form action="https://formspree.io/f/mjkbzzbn" method="post" role="form" class="php-email-form" id="check">
-              <div class="row">
-                <div class="form-group  col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name">
-
+                <div class="skill-category reveal">
+                    <h3>Backend & Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag"><i class="fa-solid fa-fire" style="color: #FFCA28;"></i> Firebase</span>
+                        <span class="skill-tag"><i class="fa-solid fa-network-wired"></i> REST APIs</span>
+                        <span class="skill-tag"><i class="fa-solid fa-database"></i> SQLite / Hive</span>
+                        <span class="skill-tag"><i class="fa-brands fa-git-alt" style="color: #F05032;"></i> Git</span>
+                        <span class="skill-tag"><i class="fa-brands fa-figma" style="color: #F24E1E;"></i> Figma</span>
+                    </div>
                 </div>
-                <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
-            </form>
-          </div>
-
+            </div>
         </div>
+    </section>
 
-      </div>
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title reveal">Where I've Worked</h2>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Flutter Developer</h3>
+                                <div class="timeline-company">Neurealm</div>
+                            </div>
+                            <span class="timeline-date">2022 - Present</span>
+                        </div>
+                        <p>Architected and maintained robust cross-platform applications. Focused on implementing clean
+                            architecture principles and scalable state management solutions using BLoC and Riverpod.
+                            Delivered high-performance UI components with smooth animations.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Software Engineer</h3>
+                                <div class="timeline-company">Ikure</div>
+                            </div>
+                            <span class="timeline-date">2021 - 2022</span>
+                        </div>
+                        <p>Developed core features for mobile applications focusing on healthcare solutions. Integrated
+                            RESTful APIs, optimized app performance, and collaborated closely with UI/UX designers to
+                            translate Figma mockups into functional screens.</p>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <div>
+                                <h3 class="timeline-role">Mobile App Developer</h3>
+                                <div class="timeline-company">Brototype</div>
+                            </div>
+                            <span class="timeline-date">2020 - 2021</span>
+                        </div>
+                        <p>Built foundational skills in Flutter development, working on various client projects. Focused
+                            on UI implementation, state management using Provider, and Firebase integration for
+                            authentication and database services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    </section><!-- End Contact Section -->
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title reveal">Selected Projects</h2>
+            <div class="projects-grid">
 
-  </main><!-- End #main -->
+                <!-- Project 1 -->
+                <div class="project-card reveal">
+                    <a href="https://play.google.com/store/apps/details?id=com.adityabirlacapitaldigital.OneApp&hl=en_IN"
+                        target="_blank" rel="noopener noreferrer" class="project-img-wrapper" style="display: block;">
+                        <img src="assets/img/portfolio/abcd.png" alt="Aditya Birla Capital Digital" class="project-img"
+                            onerror="this.src='https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3 class="project-title">Aditya Birla Capital</h3>
+                            <div class="project-links">
+                                <a href="https://play.google.com/store/apps/details?id=com.adityabirlacapitaldigital.OneApp&hl=en_IN"
+                                    target="_blank" rel="noopener noreferrer" aria-label="View Project"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-desc">A comprehensive fintech application handling complex financial data,
+                            secure transactions, and real-time portfolio management.</div>
+                        <div class="project-tags">
+                            <span>Flutter</span>
+                            <span>RESTful API</span>
+                            <span>Firebase</span>
+                            <span>Payment Gateway</span>
 
-  <!-- ======= Footer ======= -->
-  <!-- <footer id="footer">
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span></span></strong>
-      </div>
-      <div class="credits"> -->
-  <!-- All the links in the footer should remain intact. -->
-  <!-- You can delete the links only if you purchased the pro version. -->
-  <!-- Licensing information: https://bootstrapmade.com/license/ -->
-  <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-  <!-- Designed by <a href="https://bootstrapmade.com/">Bootstrap</a>
-      </div>
-    </div>
-  </footer>End  Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"></script>
+                <!-- Project 2 -->
+                <div class="project-card reveal">
+                    <a href="https://play.google.com/store/apps/details?id=com.flyfrontier.android&hl=en_IN"
+                        target="_blank" rel="noopener noreferrer" class="project-img-wrapper" style="display: block;">
+                        <img src="assets/img/portfolio/frontier.png" alt="Frontier Airlines" class="project-img"
+                            onerror="this.src='https://images.unsplash.com/photo-1436491865332-7a61a109cc05?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </a>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3 class="project-title">Frontier Airlines</h3>
+                            <div class="project-links">
+                                <a href="https://apps.apple.com/in/app/frontier-airlines/id1041410548" target="_blank"
+                                    rel="noopener noreferrer" aria-label="View Project"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-desc">Flight booking and management mobile app featuring seamless booking
+                            flows, seat selection, and boarding pass generation.</div>
+                        <div class="project-tags">
+                            <span>Flutter</span>
+                            <span>Kotlin compose</span>
+                            <span>Swift</span>
+                            <span>Module integration</span>
+                            <span>MVVM + Repository pattern</span>
 
-  <script src="  https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+                        </div>
+                    </div>
+                </div>
 
+                <!-- Project 3 -->
+                <div class="project-card reveal">
+                    <div class="project-img-wrapper">
+                        <img src="assets/img/portfolio/mono_icon.png" alt="Mono" class="project-img"
+                            onerror="this.src='https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3 class="project-title">Mono</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/godsday/Mono" aria-label="View Project"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-desc">A beautifully designed personal finance application that helps users
+                            track expenses, set budgets, and analyze spending habits.</div>
+                        <div class="project-tags">
+                            <span>Flutter</span>
+                            <span>MVC</span>
+                            <span>Provider</span>
+                            <span>Clean Architecture</span>
+                            <span>Hive database</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card reveal">
+                    <div class="project-img-wrapper">
+                        <img src="assets/img/portfolio/silenced_emotion.png" alt="Silenced Emotion" class="project-img"
+                            onerror="this.src='https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header">
+                            <h3 class="project-title">Silenced Emotion</h3>
+                            <div class="project-links">
+                                <a href="https://github.com/shahil-mv/silenced_emotion" aria-label="View Project"><i
+                                        class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                            </div>
+                        </div>
+                        <div class="project-desc">An innovative WebRTC-based listener app facilitating real-time
+                            anonymous communication and emotional support connections.</div>
+                        <div class="project-tags">
+                            <span>Flutter</span>
+                            <span>WebRTC</span>
+                            <span>WebSockets</span>
+                            <span>Bloc</span>
+                            <span>FCM</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title reveal">Education</h2>
+            <div class="education-container">
+                <div class="education-item reveal">
+                    <div class="edu-info">
+                        <h3 class="edu-degree">Master of Computer Applications (MCA) in Data Science & AI</h3>
+                        <div class="edu-school">Manipal University</div>
+                    </div>
+                    <span class="edu-year">Present</span>
+                </div>
+                <div class="education-item reveal">
+                    <div class="edu-info">
+                        <h3 class="edu-degree">Bachelor of Computer Applications (BCA)</h3>
+                        <div class="edu-school">University of Calicut</div>
+                    </div>
+                    <span class="edu-year">Graduated</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-content reveal">
+                <h2 class="section-title" style="margin-bottom: 1.5rem;">Get In Touch</h2>
+                <p class="contact-text">
+                    I'm currently looking for new opportunities. Whether you have a question, a project proposal, or
+                    just want to say hi, my inbox is always open.
+                </p>
+                <a href="mailto:rafikkvavoor@gmail.com" class="btn btn-primary">
+                    <i class="fa-regular fa-paper-plane"></i> Say Hello
+                </a>
+
+                <div class="social-links">
+                    <a href="mailto:rafikkvavoor@gmail.com" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-regular fa-envelope"></i> Email
+                    </a>
+                    <a href="https://linkedin.com/in/rafikk" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/godsday" target="_blank" rel="noopener noreferrer">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>Designed & Built by Muhammed Rafi KK</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Navbar Background on Scroll
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Register ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Typing Effect
+        const roles = ["Flutter Dev.", "UI Thinker.", "App Architect."];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingSpeed = 100;
+        const deletingSpeed = 50;
+        const pauseTime = 2000;
+
+        function typeEffect() {
+            const currentRole = roles[roleIndex];
+            const typedTextElement = document.getElementById('typed-text');
+
+            if (isDeleting) {
+                typedTextElement.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedTextElement.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let speed = isDeleting ? deletingSpeed : typingSpeed;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                speed = pauseTime;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                speed = 500;
+            }
+
+            setTimeout(typeEffect, speed);
+        }
+
+        // Start typing effect on load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(typeEffect, 1000);
+        });
+
+        // Animations
+        const reveals = document.querySelectorAll('.reveal');
+
+        reveals.forEach((element) => {
+            gsap.to(element, {
+                scrollTrigger: {
+                    trigger: element,
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                },
+                y: 0,
+                opacity: 1,
+                duration: 0.8,
+                ease: "power3.out"
+            });
+        });
+
+        // Mobile Menu Toggle
+        const menuBtn = document.querySelector('.menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuBtn.addEventListener('click', () => {
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.background = 'rgba(10, 10, 10, 0.95)';
+                navLinks.style.padding = '2rem';
+                navLinks.style.borderBottom = '1px solid rgba(255,255,255,0.05)';
+                navLinks.style.backdropFilter = 'blur(10px)';
+                menuBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
+            }
+        });
+
+        // Handle window resize for mobile menu
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+                navLinks.style.display = 'flex';
+                navLinks.style.flexDirection = 'row';
+                navLinks.style.position = 'static';
+                navLinks.style.background = 'none';
+                navLinks.style.padding = '0';
+                navLinks.style.borderBottom = 'none';
+                navLinks.style.backdropFilter = 'none';
+            } else {
+                navLinks.style.display = 'none';
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navLinks.style.display = 'none';
+                    menuBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
